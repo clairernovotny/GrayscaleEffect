@@ -2,8 +2,9 @@
   <PropertyGroup>
     <TargetFrameworks>net46;netcoreapp3.0</TargetFrameworks>
     <Description>Grayscale effect using pixel shaders</Description>
+    <Authors>Oren Novotny and Anders Bursjöö</Authors>
     <UseWpf>true</UseWpf>
-    <PackageLicenceExpression>MIT</PackageLicenceExpression>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <DebugType>embedded</DebugType>
 
     <PackageProjectUrl>https://github.com/onovotny/GrayscaleEffect</PackageProjectUrl>
