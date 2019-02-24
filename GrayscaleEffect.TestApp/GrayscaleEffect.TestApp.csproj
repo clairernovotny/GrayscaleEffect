@@ -3,6 +3,7 @@
     <TargetFrameworks>netcoreapp3.0;net461</TargetFrameworks>
     <OutputType>WinExe</OutputType>
     <UseWpf>true</UseWpf>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
  
   <ItemGroup>
