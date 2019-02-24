@@ -62,9 +62,7 @@
     <Compile Include="GrayscaleEffect.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="GrayscaleEffect.ps" />
-  </ItemGroup>
+
   <ItemGroup>
     <None Include="GrayscaleEffect.fx" />
   </ItemGroup>
@@ -76,7 +74,18 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <PropertyGroup>
-    <PreBuildEvent>"$(DXSDK_DIR)Utilities\Bin\x86\fxc.exe" /T ps_2_0 /E main /Fo"$(SolutionDir)GrayscaleEffect/GrayscaleEffect.ps" "$(SolutionDir)GrayscaleEffect/GrayscaleEffect.fx"</PreBuildEvent>
-  </PropertyGroup>
+
+  <Target Name="CompilePixelShader" BeforeTargets="BeforeBuild">
+    <PropertyGroup>
+      <FxcExecCmd>"$(MSBuildProgramFiles32)\Windows Kits\10\bin\10.0.17763.0\x86\fxc.exe" /nologo /T ps_2_0 /E main /Fo "$(MSBuildThisFileDirectory)$(IntermediateOutputPath)GrayscaleEffect.ps" "$(MSBuildThisFileDirectory)GrayscaleEffect.fx"</FxcExecCmd>
+    </PropertyGroup>
+
+    <Message Text="Executing: $(FxcExecCmd)" Importance="High" />
+    <Exec Command="$(FxcExecCmd)" />
+
+    <ItemGroup Condition="Exists('$(IntermediateOutputPath)GrayscaleEffect.ps')">
+      <Resource Include="$(IntermediateOutputPath)GrayscaleEffect.ps" />
+    </ItemGroup>
+  </Target>
+  
 </Project>
