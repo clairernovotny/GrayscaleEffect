@@ -3,7 +3,20 @@
     <TargetFrameworks>net46;netcoreapp3.0</TargetFrameworks>
     <Description>Grayscale effect using pixel shaders</Description>
     <UseWpf>true</UseWpf>
+    <PackageLicenceExpression>MIT</PackageLicenceExpression>
+    <DebugType>embedded</DebugType>
+
+    <PackageProjectUrl>https://github.com/onovotny/GrayscaleEffect</PackageProjectUrl>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <Copyright>© 2019 Oren Novotny and Anders Bursjöö</Copyright>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Nerdbank.GitVersioning" Version="2.3.105" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-18618-05" PrivateAssets="All"/>
+  </ItemGroup>
+
 
   <Target Name="CompilePixelShader" BeforeTargets="BeforeBuild">
     <PropertyGroup>
